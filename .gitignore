@@ -11,3 +11,7 @@ csharp/*.suo
 *.swp
 .DS_Store
 csharp/.vs/Tennis-Refactoring-Kata/v14/.suo
+csharp/Tennis-Refactoring-Kata.ncrunchsolution.user
+csharp/Tennis-Refactoring-Kata.v2.ncrunchsolution
+csharp/_NCrunch_Tennis-Refactoring-Kata/Tennis-Refactoring-Kata.crunchsolution.cache
+csharp/Tennis/Tennis.v2.ncrunchproject
