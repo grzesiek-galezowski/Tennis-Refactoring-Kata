@@ -10,3 +10,4 @@ csharp/Tennis/obj/
 csharp/*.suo
 *.swp
 .DS_Store
+csharp/.vs/Tennis-Refactoring-Kata/v14/.suo
