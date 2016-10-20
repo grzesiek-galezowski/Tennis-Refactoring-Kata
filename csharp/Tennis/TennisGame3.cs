@@ -25,7 +25,9 @@ namespace Tennis
       else
       {
         if (_p1 == _p2)
+        {
           return "Deuce";
+        }
         s = _p1 > _p2 ? _p1N : _p2N;
         return ((_p1 - _p2)*(_p1 - _p2) == 1) ? "Advantage " + s : "Win for " + s;
       }
@@ -34,9 +36,13 @@ namespace Tennis
     public void WonPoint(string playerName)
     {
       if (playerName == "player1")
+      {
         this._p1 += 1;
+      }
       else
+      {
         this._p2 += 1;
+      }
     }
 
   }
