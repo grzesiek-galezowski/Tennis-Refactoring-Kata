@@ -59,15 +59,15 @@ namespace Tennis
   [TestFixture(14, 16, "Win for player2")]
   public class TennisTests
   {
-    private readonly int player1Score;
-    private readonly int player2Score;
-    private readonly string expectedScore;
+    private readonly int _player1Score;
+    private readonly int _player2Score;
+    private readonly string _expectedScore;
 
     public TennisTests(int player1Score, int player2Score, string expectedScore)
     {
-      this.player1Score = player1Score;
-      this.player2Score = player2Score;
-      this.expectedScore = expectedScore;
+      this._player1Score = player1Score;
+      this._player2Score = player2Score;
+      this._expectedScore = expectedScore;
     }
 
     [Test]
@@ -79,61 +79,17 @@ namespace Tennis
 
     private void CheckAllScores(ITennisGame game)
     {
-      var highestScore = Math.Max(this.player1Score, this.player2Score);
+      var highestScore = Math.Max(this._player1Score, this._player2Score);
       for (var i = 0; i < highestScore; i++)
       {
-        if (i < this.player1Score)
+        if (i < this._player1Score)
           game.WonPoint("player1");
-        if (i < this.player2Score)
+        if (i < this._player2Score)
           game.WonPoint("player2");
       }
-      Assert.AreEqual(this.expectedScore, game.GetScore());
+      Assert.AreEqual(this._expectedScore, game.GetScore());
     }
 
   }
-
-  [TestFixture]
-  public class ExampleGameTennisTest
-  {
-    [Test]
-    public void CheckGame3()
-    {
-      var game = new TennisGame3("player1", "player2");
-      RealisticTennisGame(game);
-      var game2 = new TennisGame3("player1", "player2");
-      RealisticTennisGame2(game2);
-    }
-
-    private void RealisticTennisGame(ITennisGame game)
-    {
-      string[] points = {"player1", "player1", "player2", "player2", "player1", "player1"};
-      string[] expectedScores =
-      {
-        "Fifteen-Love", "Thirty-Love", "Thirty-Fifteen", "Thirty-All", "Forty-Thirty",
-        "Win for player1"
-      };
-      for (var i = 0; i < 6; i++)
-      {
-        game.WonPoint(points[i]);
-        Assert.AreEqual(expectedScores[i], game.GetScore());
-      }
-    }
-
-    private void RealisticTennisGame2(ITennisGame game)
-    {
-      string[] points = {"player2", "player2", "player1", "player1", "player2", "player2"};
-      string[] expectedScores =
-      {
-        "Love-Fifteen", "Love-Thirty", "Fifteen-Thirty", "Thirty-All", "Thirty-Forty",
-        "Win for player2"
-      };
-      for (var i = 0; i < 6; i++)
-      {
-        game.WonPoint(points[i]);
-        Assert.AreEqual(expectedScores[i], game.GetScore());
-      }
-    }
-  }
-
 }
 
